@@ -140,7 +140,12 @@ def test_opener_uses_fixed_url_and_timeout(monkeypatch):
     assert calls == [(download.RELEASE_URL, 60)]
 
 
-@pytest.mark.skipif(not (ROOT/'models/credit_risk.joblib').exists(), reason='Local validated artifact required')
+def pinned_release_artifact_available():
+    artifact = ROOT/'models/credit_risk.joblib'
+    return artifact.is_file() and hashlib.sha256(artifact.read_bytes()).hexdigest() == download.EXPECTED_SHA256
+
+
+@pytest.mark.skipif(not pinned_release_artifact_available(), reason='Pinned validated release artifact required')
 def test_fresh_startup_mock_download_preserves_real_prediction(tmp_path, monkeypatch):
     from app.schemas import Applicant
     from src.models.service import RiskService
