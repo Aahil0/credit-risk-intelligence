@@ -24,7 +24,7 @@ st.markdown('Historical payment behavior → calibrated default probability → 
 st.info('Educational portfolio demonstration · Taiwan, 2005 · Not suitable for automated lending decisions.')
 try:
     service = get_service()
-except (FileNotFoundError, ValueError) as exc:
+except (FileNotFoundError, ValueError, RuntimeError) as exc:
     st.error(f'Model unavailable: {exc}. Run python -m src.models.train from the project root.')
     st.stop()
 metadata = service.metadata

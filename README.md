@@ -58,7 +58,13 @@ python -m uvicorn app.api:app --host 127.0.0.1 --port 8000
 
 Dashboard: [localhost:8501](http://localhost:8501) · API docs: [127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
-A trusted prebuilt model could be distributed separately as a future GitHub Release asset; this workflow assumes no release exists. Load only trusted joblib artifacts. Without a fitted artifact, integration tests are explicitly skipped and application startup fails rather than serving placeholder predictions.
+A trusted prebuilt model could be distributed separately as a future GitHub Release asset; this workflow assumes no release exists. Load only trusted joblib artifacts. Without a local fitted artifact, artifact integration tests are explicitly skipped. Application startup fails if neither a local artifact nor the pinned release is available, rather than serving placeholder predictions.
+
+### Streamlit Community Cloud
+
+Git does not store the fitted model binary. With `app/dashboard.py` as the entrypoint, shared inference startup retrieves the pinned [v2.0.0 release asset](https://github.com/Aahil0/credit-risk-intelligence/releases/download/v2.0.0/credit_risk.joblib) when `models/credit_risk.joblib` is absent; FastAPI uses the same path. The release must first be published with `credit_risk.joblib` attached. No release is assumed to exist yet, and a missing/invalid asset causes a clear startup failure without retraining or placeholder predictions.
+
+Downloaded bytes must match SHA-256 `8426e02f00fb7d3dce1d9ea345986f1ec5093fda0bf83b8e01521ec5a1953180` before atomic installation, followed by the existing artifact checksum check. Existing local artifacts are used without downloading; local users can train as above or use the pinned release after it is published. Only the fixed project-owned URL and HTTPS redirects to GitHub release hosts are allowed. Checksums verify integrity, not code signing or publisher authenticity; joblib can execute code, so load only trusted artifacts.
 
 ## Problem context
 

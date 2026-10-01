@@ -8,6 +8,7 @@ import pandas as pd
 from src.config import ROOT, RAW_FEATURES, STATUS, BILLS, PAYMENTS
 from src.models.explain import make_explainer, explain, factors
 from src.evaluation.segmentation import review_flag
+from src.models.artifact_download import ensure_model_artifact
 
 
 def risk_category(probability, segments):
@@ -20,7 +21,9 @@ def risk_category(probability, segments):
 
 class RiskService:
     def __init__(self, model_path=None):
-        path = Path(model_path) if model_path is not None else ROOT/'models/credit_risk.joblib'
+        # Explicit custom paths remain caller-managed; default startup can fetch
+        # only the pinned, verified project release when the artifact is absent.
+        path = Path(model_path) if model_path is not None else ensure_model_artifact()
         checksum_path = path.with_suffix('.sha256')
         if hashlib.sha256(path.read_bytes()).hexdigest() != checksum_path.read_text().strip():
             raise ValueError('Model checksum mismatch')
