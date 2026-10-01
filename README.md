@@ -60,13 +60,13 @@ python -m uvicorn app.api:app --host 127.0.0.1 --port 8000
 
 Dashboard: [localhost:8501](http://localhost:8501) · API docs: [127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
-A trusted prebuilt model could be distributed separately as a future GitHub Release asset; this workflow assumes no release exists. Load only trusted joblib artifacts. Without a local fitted artifact, artifact integration tests are explicitly skipped. Application startup fails if neither a local artifact nor the pinned release is available, rather than serving placeholder predictions.
+A validated prebuilt model is also available as the pinned [v2.0.0 GitHub Release asset](https://github.com/Aahil0/credit-risk-intelligence/releases/download/v2.0.0/credit_risk.joblib). Load only trusted joblib artifacts. Without a local fitted artifact, artifact integration tests are explicitly skipped. Application startup fails if neither a local artifact nor the pinned release is available, rather than serving placeholder predictions.
 
 ### Streamlit Community Cloud
 
-Git does not store the fitted model binary. With `app/dashboard.py` as the entrypoint, shared inference startup retrieves the pinned [v2.0.0 release asset](https://github.com/Aahil0/credit-risk-intelligence/releases/download/v2.0.0/credit_risk.joblib) when `models/credit_risk.joblib` is absent; FastAPI uses the same path. The release must first be published with `credit_risk.joblib` attached. No release is assumed to exist yet, and a missing/invalid asset causes a clear startup failure without retraining or placeholder predictions.
+The public dashboard is deployed at [credit-risk-intelligence-ml.streamlit.app](https://credit-risk-intelligence-ml.streamlit.app/). Git does not store the fitted model binary. With `app/dashboard.py` as the entrypoint, shared inference startup retrieves the published pinned [v2.0.0 release asset](https://github.com/Aahil0/credit-risk-intelligence/releases/download/v2.0.0/credit_risk.joblib) when `models/credit_risk.joblib` is absent; FastAPI uses the same path. A missing or invalid asset causes a clear startup failure without retraining or placeholder predictions.
 
-Downloaded bytes must match SHA-256 `8426e02f00fb7d3dce1d9ea345986f1ec5093fda0bf83b8e01521ec5a1953180` before atomic installation, followed by the existing artifact checksum check. Existing local artifacts are used without downloading; local users can train as above or use the pinned release after it is published. Only the fixed project-owned URL and HTTPS redirects to GitHub release hosts are allowed. Checksums verify integrity, not code signing or publisher authenticity; joblib can execute code, so load only trusted artifacts.
+Downloaded bytes must match SHA-256 `8426e02f00fb7d3dce1d9ea345986f1ec5093fda0bf83b8e01521ec5a1953180` before atomic installation, followed by the existing artifact checksum check. Existing local artifacts are used without downloading; local users can train as above or use the published pinned release. Only the fixed project-owned URL and HTTPS redirects to GitHub release hosts are allowed. Checksums verify integrity, not code signing or publisher authenticity; joblib can execute code, so load only trusted artifacts.
 
 ## Problem context
 
@@ -264,7 +264,7 @@ docker compose up --build
 
 Dashboard: port 8501; API: port 8000. The image defaults to Streamlit, with Compose starting a separate API container from the same image. Both run as a non-root user. A fresh clone must acquire data and train locally before Docker build so the image includes the fitted artifact and checksum.
 
-GitHub Actions defines lightweight contract/unit checks and a push-triggered full training/integration job with report upload. The latter needs UCI/package network access and may be slower. Without a model binary, local contract tests pass while artifact/dashboard tests are explicitly skipped; full CI training enables them. Docker is unavailable: its configuration was statically reviewed, but build/start are **not verified**. Hosted GitHub Actions has not run. V2 pinned dependencies, tests, API HTTP smoke and Streamlit AppTest/HTTP smoke were executed on Windows/Python 3.12.
+GitHub Actions defines lightweight contract/unit checks and a push-triggered full training/integration job with report upload. The latter needs UCI/package network access and may be slower. Without a model binary, local contract tests pass while artifact/dashboard tests are explicitly skipped; full CI training enables them. Docker is unavailable in the local verification environment, so its configuration was statically reviewed but build/start remain **not verified**. Hosted GitHub Actions has been exercised successfully on `main`. V2 pinned dependencies, tests, API HTTP smoke and Streamlit AppTest/HTTP smoke were executed on Windows/Python 3.12.
 
 ## Repository layout
 
