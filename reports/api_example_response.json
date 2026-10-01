@@ -1,0 +1,103 @@
+{
+  "probability_of_default": 0.07799642862929708,
+  "risk_category": "LOW",
+  "flagged_for_review": false,
+  "important_risk_factors": [
+    {
+      "feature": "severe_delinquency_months",
+      "label": "Months delayed by at least two months",
+      "contribution": -0.021409084929889164,
+      "direction": "decreases_risk",
+      "transformed_feature_value": -0.4849018702608183,
+      "feature_value": 0.0,
+      "value_unit": "historical derived value (unscaled)",
+      "indicator_active": null,
+      "indicator_code": null
+    },
+    {
+      "feature": "delinquency_frequency",
+      "label": "Months with payment delay",
+      "contribution": -0.01845343354043447,
+      "direction": "decreases_risk",
+      "transformed_feature_value": -0.5369497997426217,
+      "feature_value": 0.0,
+      "value_unit": "historical derived value (unscaled)",
+      "indicator_active": null,
+      "indicator_code": null
+    },
+    {
+      "feature": "max_delay",
+      "label": "Maximum payment delay",
+      "contribution": -0.017859685986690438,
+      "direction": "decreases_risk",
+      "transformed_feature_value": -0.6344933198669304,
+      "feature_value": 0.0,
+      "value_unit": "historical derived value (unscaled)",
+      "indicator_active": null,
+      "indicator_code": null
+    },
+    {
+      "feature": "PAY_0_2.0",
+      "label": "September repayment code = 2",
+      "contribution": -0.009025653674942858,
+      "direction": "decreases_risk",
+      "transformed_feature_value": 0.0,
+      "feature_value": 0.0,
+      "value_unit": "repayment code",
+      "indicator_active": false,
+      "indicator_code": 2
+    },
+    {
+      "feature": "PAY_4_0.0",
+      "label": "June repayment code = 0",
+      "contribution": 0.0003378100973193559,
+      "direction": "increases_risk",
+      "transformed_feature_value": 1.0,
+      "feature_value": 0.0,
+      "value_unit": "repayment code",
+      "indicator_active": true,
+      "indicator_code": 0
+    },
+    {
+      "feature": "PAY_4_-1.0",
+      "label": "June repayment code = -1",
+      "contribution": 0.0003082835165209096,
+      "direction": "increases_risk",
+      "transformed_feature_value": 0.0,
+      "feature_value": 0.0,
+      "value_unit": "repayment code",
+      "indicator_active": false,
+      "indicator_code": -1
+    },
+    {
+      "feature": "payment_trend_per_limit",
+      "label": "Payment trend relative to credit limit",
+      "contribution": 0.00021119348799579455,
+      "direction": "increases_risk",
+      "transformed_feature_value": -0.09698554613125812,
+      "feature_value": 0.0,
+      "value_unit": "historical derived value (unscaled)",
+      "indicator_active": null,
+      "indicator_code": null
+    },
+    {
+      "feature": "PAY_0_-2.0",
+      "label": "September repayment code = -2",
+      "contribution": 0.00017646138205851256,
+      "direction": "increases_risk",
+      "transformed_feature_value": 0.0,
+      "feature_value": 0.0,
+      "value_unit": "repayment code",
+      "indicator_active": false,
+      "indicator_code": -2
+    }
+  ],
+  "explanation_unit": "uncalibrated probability",
+  "explanation_base_value": 0.22159545505056125,
+  "explanation_total_contribution": -0.16565799985428337,
+  "model": "Random Forest",
+  "calibration": "sigmoid",
+  "decision_threshold": 0.15,
+  "warnings": [],
+  "notice": "Educational decision support only. Contributions explain the underlying uncalibrated score, not the calibrated PD, and are not causal."
+}

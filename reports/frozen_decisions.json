@@ -1,0 +1,18 @@
+{
+  "selected_model": "Random Forest",
+  "calibration": "sigmoid",
+  "threshold": 0.15,
+  "segments": {
+    "low_upper_exclusive": 0.09535463063665424,
+    "high_lower_inclusive": 0.21843748706391583
+  },
+  "costs": {
+    "false_negative": 5,
+    "false_positive": 1
+  },
+  "selection": "V1 fitted model retained; audited raw validation AP selects Random Forest; validation Brier selects sigmoid; validation minimum 5*FN+FP selects review threshold",
+  "low_segment_rule": "Validation calibrated PD Q25/Q75, numpy linear interpolation; LOW < Q25, MEDIUM Q25 <= PD < Q75, HIGH >= Q75; independent of costs",
+  "seed": 42,
+  "methodology_version": "2.0.0",
+  "v1_artifact_sha256": "3203e88feeb0200d5750c8cac4129f524b85df0b123fdf2acc5498a08748f122"
+}

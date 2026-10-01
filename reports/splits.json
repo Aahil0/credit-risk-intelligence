@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "method": "10-fold StratifiedGroupKFold; 6/1/1/2 folds",
+  "groups": 29183,
+  "duplicate_input_rows": 817,
+  "partitions": {
+    "train": {
+      "rows": 17998,
+      "default_rate": 0.22119124347149682
+    },
+    "calibration": {
+      "rows": 3009,
+      "default_rate": 0.22200066467264873
+    },
+    "validation": {
+      "rows": 2997,
+      "default_rate": 0.22088755422088754
+    },
+    "test": {
+      "rows": 5996,
+      "default_rate": 0.22098065376917944
+    }
+  }
+}

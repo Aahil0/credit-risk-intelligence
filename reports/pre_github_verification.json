@@ -1,0 +1,155 @@
+{
+  "cleanup_scope": "Presentation and repository hygiene only; no retraining or application-code changes",
+  "pytest": {
+    "passed": 52,
+    "skipped": 0,
+    "warnings": 1,
+    "duration_seconds": 5.58,
+    "warning": "Existing Starlette/httpx test-client deprecation"
+  },
+  "compileall": "passed",
+  "artifact_verification": {
+    "status": "passed",
+    "held_out_rows_repredicted": 5996,
+    "model_checksum": "8426e02f00fb7d3dce1d9ea345986f1ec5093fda0bf83b8e01521ec5a1953180",
+    "checks": [
+      "Raw held-out labels match stored predictions",
+      "Artifact predictions match executed experiment",
+      "All comparator metrics recomputed from stored predictions",
+      "Metadata metrics match",
+      "No model-input group crosses split boundaries",
+      "Segment cuts recomputed from validation only",
+      "External, embedded and frozen metadata agree",
+      "Fairness rates and intervals recomputed"
+    ],
+    "metrics": {
+      "roc_auc": 0.7839707064464401,
+      "pr_auc_ap": 0.5671946180163251,
+      "precision": 0.4192634560906516,
+      "recall": 0.670188679245283,
+      "f1": 0.5158292187046181,
+      "brier": 0.13437222988940697,
+      "log_loss": 0.42984522743270015,
+      "threshold": 0.15,
+      "tn": 3441,
+      "fp": 1230,
+      "fn": 437,
+      "tp": 888,
+      "cost_per_customer": 0.5695463642428286,
+      "n": 5996
+    }
+  },
+  "http_smoke": {
+    "api": {
+      "status": "passed",
+      "checks": [
+        "HTTP health 200",
+        "HTTP predict 200",
+        "Repeatable response",
+        "Invalid input 422",
+        "OpenAPI 200"
+      ]
+    },
+    "streamlit": {
+      "status": "passed",
+      "checks": [
+        "HTTP health 200",
+        "HTTP app shell 200; interactive rendering verified separately by AppTest"
+      ]
+    }
+  },
+  "streamlit_apptest": "Passed as part of pytest for LOW/MEDIUM/HIGH submissions",
+  "pip_check": "No broken requirements found",
+  "protected_files_hash_checked": 61,
+  "protected_files_changed": [],
+  "readme_metric_and_link_checks": "passed",
+  "public_file_count": 87,
+  "public_file_manifest": "reports/public_repository_files.txt",
+  "public_text_files_scanned": 77,
+  "local_absolute_path_findings": [],
+  "secret_pattern_findings": [],
+  "transient_logs_retained_locally_but_ignored": [
+    {
+      "file": "reports/api_live_smoke.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/clean_install.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/dashboard_live_smoke.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/dependency_check.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/tests.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/training.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/v2_api_live.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/v2_baseline_tests.log",
+      "local_path_lines": 1,
+      "ignored": true
+    },
+    {
+      "file": "reports/v2_notebook.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/v2_streamlit_live.log",
+      "local_path_lines": 0,
+      "ignored": true
+    },
+    {
+      "file": "reports/v2_tests.log",
+      "local_path_lines": 1,
+      "ignored": true
+    },
+    {
+      "file": "reports/v2_verification.log",
+      "local_path_lines": 2,
+      "ignored": true
+    },
+    {
+      "file": "reports/verification.log",
+      "local_path_lines": 0,
+      "ignored": true
+    }
+  ],
+  "ignored_internal_records": [
+    "reports/v1_snapshot/",
+    "reports/v2_source_changes.patch",
+    "reports/v2_changes.json",
+    "reports/package_manifest.json",
+    "reports/verification_report.md",
+    "reports/http_smoke.json"
+  ],
+  "scan_limitations": "Pattern-based text scan, not a comprehensive credential audit. Portable relative virtual-environment instructions and container /workspace paths are intentional.",
+  "not_verified": [
+    "Docker build/runtime",
+    "Hosted GitHub Actions",
+    "Full retraining of the updated training path",
+    "Browser pixel-level inspection"
+  ],
+  "git_initialized": false,
+  "pushed_or_published": false
+}

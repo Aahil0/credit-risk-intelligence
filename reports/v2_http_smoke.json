@@ -1,0 +1,19 @@
+{
+  "api": {
+    "status": "passed",
+    "checks": [
+      "HTTP health 200",
+      "HTTP predict 200",
+      "Repeatable response",
+      "Invalid input 422",
+      "OpenAPI 200"
+    ]
+  },
+  "streamlit": {
+    "status": "passed",
+    "checks": [
+      "HTTP health 200",
+      "HTTP app shell 200; interactive rendering verified separately by AppTest"
+    ]
+  }
+}

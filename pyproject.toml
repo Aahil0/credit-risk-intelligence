@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "credit-risk-intelligence"
+version = "2.0.0"
+description = "Educational explainable credit default risk platform"
+requires-python = ">=3.11,<3.14"
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+[tool.setuptools.packages.find]
+include = ["src*", "app*"]
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

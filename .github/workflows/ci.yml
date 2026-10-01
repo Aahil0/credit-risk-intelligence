@@ -1,0 +1,38 @@
+name: Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m compileall -q src app
+      - run: python -m pytest -q
+  trained-integration:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m src.models.train
+        env:
+          OPENBLAS_NUM_THREADS: '2'
+          OMP_NUM_THREADS: '2'
+      - run: python -m pytest -q
+      - run: python -m src.evaluation.verify
+      - run: python -m src.evaluation.smoke
+      - run: python -m pip check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: experiment-evidence
+          path: |
+            models/
+            reports/

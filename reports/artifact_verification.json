@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "held_out_rows_repredicted": 5996,
+  "model_checksum": "8426e02f00fb7d3dce1d9ea345986f1ec5093fda0bf83b8e01521ec5a1953180",
+  "checks": [
+    "Raw held-out labels match stored predictions",
+    "Artifact predictions match executed experiment",
+    "All comparator metrics recomputed from stored predictions",
+    "Metadata metrics match",
+    "No model-input group crosses split boundaries",
+    "Segment cuts recomputed from validation only",
+    "External, embedded and frozen metadata agree",
+    "Fairness rates and intervals recomputed"
+  ],
+  "metrics": {
+    "roc_auc": 0.7839707064464401,
+    "pr_auc_ap": 0.5671946180163251,
+    "precision": 0.4192634560906516,
+    "recall": 0.670188679245283,
+    "f1": 0.5158292187046181,
+    "brier": 0.13437222988940697,
+    "log_loss": 0.42984522743270015,
+    "threshold": 0.15,
+    "tn": 3441,
+    "fp": 1230,
+    "fn": 437,
+    "tp": 888,
+    "cost_per_customer": 0.5695463642428286,
+    "n": 5996
+  }
+}

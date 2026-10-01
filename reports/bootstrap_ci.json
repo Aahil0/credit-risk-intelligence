@@ -1,0 +1,11 @@
+{
+  "method": "400 record-bootstrap samples; frozen model, IID approximation",
+  "roc_auc_95": [
+    0.7678691824454533,
+    0.7973903262271256
+  ],
+  "pr_auc_ap_95": [
+    0.5410520953891137,
+    0.5959034955634374
+  ]
+}

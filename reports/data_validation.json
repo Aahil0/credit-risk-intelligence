@@ -1,0 +1,26 @@
+{
+  "source": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+  "dataset_doi": "10.24432/C55S3H",
+  "license": "CC BY 4.0",
+  "sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+  "validated_at_utc": "2026-09-30T14:35:02.042387+00:00",
+  "rows": 30000,
+  "missing_cells": 0,
+  "default_count": 6636,
+  "negative_bill_cells": 3932,
+  "education_counts": {
+    "0": 14,
+    "1": 10585,
+    "2": 14030,
+    "3": 4917,
+    "4": 123,
+    "5": 280,
+    "6": 51
+  },
+  "marriage_counts": {
+    "0": 54,
+    "1": 13659,
+    "2": 15964,
+    "3": 323
+  }
+}

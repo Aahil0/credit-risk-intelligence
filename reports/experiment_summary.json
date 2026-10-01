@@ -1,0 +1,161 @@
+{
+  "selected_model": "Random Forest",
+  "calibration": "sigmoid",
+  "threshold": 0.15,
+  "segments": {
+    "low_upper_exclusive": 0.09535463063665424,
+    "high_lower_inclusive": 0.21843748706391583
+  },
+  "costs": {
+    "false_negative": 5,
+    "false_positive": 1
+  },
+  "selection": "V1 fitted model retained; audited raw validation AP selects Random Forest; validation Brier selects sigmoid; validation minimum 5*FN+FP selects review threshold",
+  "low_segment_rule": "Validation calibrated PD Q25/Q75, numpy linear interpolation; LOW < Q25, MEDIUM Q25 <= PD < Q75, HIGH >= Q75; independent of costs",
+  "seed": 42,
+  "test_metrics": {
+    "roc_auc": 0.7839707064464401,
+    "pr_auc_ap": 0.5671946180163251,
+    "precision": 0.4192634560906516,
+    "recall": 0.670188679245283,
+    "f1": 0.5158292187046181,
+    "brier": 0.13437222988940697,
+    "log_loss": 0.42984522743270015,
+    "threshold": 0.15,
+    "tn": 3441,
+    "fp": 1230,
+    "fn": 437,
+    "tp": 888,
+    "cost_per_customer": 0.5695463642428286,
+    "n": 5996
+  },
+  "test_metrics_at_0_5": {
+    "roc_auc": 0.7839707064464401,
+    "pr_auc_ap": 0.5671946180163251,
+    "precision": 0.6852367688022284,
+    "recall": 0.3713207547169811,
+    "f1": 0.48164464023494863,
+    "brier": 0.13437222988940697,
+    "log_loss": 0.42984522743270015,
+    "threshold": 0.5,
+    "tn": 4445,
+    "fp": 226,
+    "fn": 833,
+    "tp": 492,
+    "cost_per_customer": 0.7323215476984657,
+    "n": 5996
+  },
+  "validation_metrics": {
+    "roc_auc": 0.7828444723341765,
+    "pr_auc_ap": 0.5658823407299614,
+    "precision": 0.4326923076923077,
+    "recall": 0.6797583081570997,
+    "f1": 0.5287896592244419,
+    "brier": 0.13184310228223237,
+    "log_loss": 0.4245134518721137,
+    "threshold": 0.15,
+    "tn": 1745,
+    "fp": 590,
+    "fn": 212,
+    "tp": 450,
+    "cost_per_customer": 0.5505505505505506,
+    "n": 2997
+  },
+  "explanation_unit": "uncalibrated probability",
+  "training_ranges": {
+    "LIMIT_BAL": [
+      10000.0,
+      1000000.0
+    ],
+    "PAY_0": [
+      -2.0,
+      8.0
+    ],
+    "PAY_2": [
+      -2.0,
+      7.0
+    ],
+    "PAY_3": [
+      -2.0,
+      8.0
+    ],
+    "PAY_4": [
+      -2.0,
+      7.0
+    ],
+    "PAY_5": [
+      -2.0,
+      7.0
+    ],
+    "PAY_6": [
+      -2.0,
+      8.0
+    ],
+    "BILL_AMT1": [
+      -165580.0,
+      964511.0
+    ],
+    "BILL_AMT2": [
+      -69777.0,
+      983931.0
+    ],
+    "BILL_AMT3": [
+      -157264.0,
+      855086.0
+    ],
+    "BILL_AMT4": [
+      -170000.0,
+      891586.0
+    ],
+    "BILL_AMT5": [
+      -81334.0,
+      927171.0
+    ],
+    "BILL_AMT6": [
+      -339603.0,
+      961664.0
+    ],
+    "PAY_AMT1": [
+      0.0,
+      873552.0
+    ],
+    "PAY_AMT2": [
+      0.0,
+      1227082.0
+    ],
+    "PAY_AMT3": [
+      0.0,
+      896040.0
+    ],
+    "PAY_AMT4": [
+      0.0,
+      621000.0
+    ],
+    "PAY_AMT5": [
+      0.0,
+      426529.0
+    ],
+    "PAY_AMT6": [
+      0.0,
+      528666.0
+    ]
+  },
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0",
+    "joblib": "1.5.3",
+    "streamlit": "1.64.0",
+    "fastapi": "0.142.2",
+    "pydantic": "2.13.5",
+    "matplotlib": "3.10.8",
+    "scipy": "1.17.0"
+  },
+  "trained_at_utc": "2026-09-30T14:35:53.793146+00:00",
+  "data_sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+  "methodology_version": "2.0.0",
+  "v1_artifact_sha256": "3203e88feeb0200d5750c8cac4129f524b85df0b123fdf2acc5498a08748f122"
+}

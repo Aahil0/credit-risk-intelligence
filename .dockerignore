@@ -1,0 +1,8 @@
+.git
+.venv
+__pycache__
+.pytest_cache
+data/raw
+*.zip
+.cache
+reports/v1_snapshot
