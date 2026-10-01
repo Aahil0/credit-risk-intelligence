@@ -5,6 +5,8 @@ A reproducible ML repository that estimates next-month default probability from 
 
 **Educational decision support only. Not validated for automated lending, loan approval or use with current borrowers.**
 
+**Live Demo:** [Open the Streamlit app](https://credit-risk-intelligence-ml.streamlit.app/)
+
 Built around actual experiments on UCI's 30,000-client dataset, with grouped train/calibration/validation/test partitions, three model families, calibration, threshold cost analysis, SHAP and a demographic audit. The evaluated model is **Random Forest with sigmoid calibration**. See [verification evidence](reports/v2_verification_report.md) for executed checks and their limitations.
 
 ## Quick start
